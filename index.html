@@ -55,12 +55,51 @@ p {
     font-size: 0.9em;
     color: #888;
 }
+
+input[type="password"] {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    width: 200px;
+    text-align: center;
+    font-size: 1em;
+}
+
+button {
+    margin-top: 15px;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 10px;
+    background: white;
+    cursor: pointer;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+    font-size: 1em;
+}
+
+button:hover {
+    transform: translateY(-2px);
+}
+
+#contenido {
+    display: none;
+}
 </style>
 </head>
 
 <body>
 
-<div class="contenedor">
+<div id="login" class="contenedor">
+    <h1>🤍 Nuestra Boda 🤍</h1>
+    <p>Introduce la contraseña para acceder</p>
+
+    <input type="password" id="pass" placeholder="Contraseña">
+
+    <br>
+
+    <button onclick="comprobar()">Entrar</button>
+</div>
+
+<div id="contenido" class="contenedor">
 
     <h1>Manu🤍Leti</h1>
 
@@ -77,16 +116,33 @@ p {
     <a class="boton" href="https://open.spotify.com/playlist/1DxUZbuq0DUh0KzjFUI8CO?si=e09c86443e2b4a89" target="_blank">
         🎵 Nuestra playlist
     </a>
-  
+
     <a class="boton" href="https://docs.google.com/forms/d/e/1FAIpQLSeqgKg0-fVbRpYJBUjFMQV2g0ys5YEcVenrun3ljTgaZWVmOA/viewform?usp=publish-editor" target="_blank">
         💌 Déjanos un mensaje
     </a>
-  
+
     <div class="footer">
         13 de junio de 2026
     </div>
 
 </div>
+
+<script>
+function comprobar() {
+    if (document.getElementById("pass").value === "3986") {
+        document.getElementById("login").style.display = "none";
+        document.getElementById("contenido").style.display = "block";
+    } else {
+        alert("Contraseña incorrecta");
+    }
+}
+
+document.getElementById("pass").addEventListener("keypress", function(event) {
+    if (event.key === "Enter") {
+        comprobar();
+    }
+});
+</script>
 
 </body>
 </html>
